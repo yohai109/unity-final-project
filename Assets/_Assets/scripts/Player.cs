@@ -11,10 +11,10 @@ public class Player : MonoBehaviour
     void Start() {
         healthBar.UpdateHealthBar();
     }
-    public void TakeDamage()
+    public void TakeDamage(int damageMultipliyer)
     {
         // Use your own damage handling code, or this example one.
-        health = health - 0.25f;
+        health = health - 0.25f * damageMultipliyer;
         healthBar.UpdateHealthBar();
     }
     void Update()
@@ -22,7 +22,13 @@ public class Player : MonoBehaviour
         // Example so we can test the Health Bar functionality
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TakeDamage();
+            TakeDamage(1);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.tag == "Trap") {
+            TakeDamage(1);
         }
     }
 }
