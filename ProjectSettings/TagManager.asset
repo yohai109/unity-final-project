@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - Trap
+  - Dragon
+  - Run
   layers:
   - Default
   - TransparentFX
