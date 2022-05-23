@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
+
 
 public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
     public float health, maxHealth;
     public HealthBar healthBar;
+    private bool enterMenu = false;
+    MouseLook mouseLook;
+
+    public EscapeMenuScript canvas;
 
     void Start() {
         healthBar.UpdateHealthBar();
+        //mouseLook = new MouseLook();
     }
     public void TakeDamage(int damageMultipliyer)
     {
@@ -23,6 +30,27 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(1);
+        }
+
+        // mouseLook.lockCursor = enterMenu;
+        // Cursor.visible = enterMenu;
+        
+        
+        if (Input.GetKeyUp(KeyCode.Escape)) {
+            canvas.PauseMenuHandler(!enterMenu);
+            enterMenu = !enterMenu;
+            //if (!enterMenu) {
+           
+            //}
+            //     mouseLook.lockCursor = false;
+            //     Cursor.visible = true;
+            //     canvas.PauseMenuHandler(!enterMenu);
+            // } else {
+            //     mouseLook = new MouseLook();
+            //     mouseLook.lockCursor = true;
+            //     Cursor.visible = false;
+            //     canvas.PauseMenuHandler(!enterMenu);
+            // }
         }
     }
 
