@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     void Start() {
         healthBar.UpdateHealthBar();
+        //mouseLook = new MouseLook();
     }
     public void TakeDamage(int damageMultipliyer)
     {
@@ -31,22 +32,25 @@ public class Player : MonoBehaviour
             TakeDamage(1);
         }
 
+        // mouseLook.lockCursor = enterMenu;
+        // Cursor.visible = enterMenu;
         
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            if (!enterMenu) {
-                mouseLook = new MouseLook();
-                mouseLook.lockCursor = false;
-                Cursor.visible = true;
-                canvas.PauseMenuHandler(!enterMenu);
-            } else {
-                mouseLook = new MouseLook();
-                mouseLook.lockCursor = true;
-                Cursor.visible = false;
-                canvas.PauseMenuHandler(!enterMenu);
-            }
-
+        
+        if (Input.GetKeyUp(KeyCode.Escape)) {
+            canvas.PauseMenuHandler(!enterMenu);
             enterMenu = !enterMenu;
+            //if (!enterMenu) {
+           
+            //}
+            //     mouseLook.lockCursor = false;
+            //     Cursor.visible = true;
+            //     canvas.PauseMenuHandler(!enterMenu);
+            // } else {
+            //     mouseLook = new MouseLook();
+            //     mouseLook.lockCursor = true;
+            //     Cursor.visible = false;
+            //     canvas.PauseMenuHandler(!enterMenu);
+            // }
         }
     }
 
