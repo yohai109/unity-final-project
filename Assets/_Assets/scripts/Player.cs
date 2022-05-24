@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class Player : MonoBehaviour
@@ -25,11 +26,12 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageMultipliyer)
     {
         // Use your own damage handling code, or this example one.
-        if (health - (0.25f * damageMultipliyer) < 0)
+        if (health - (0.25f * damageMultipliyer) <= 0)
         {
             health = 0f;
+            SceneManager.LoadScene("loseMenuScene");
         }
-        else if (health - (0.25f * damageMultipliyer) > 1)
+        else if (health - (0.25f * damageMultipliyer) >= 1)
         {
             health = 1f;
         }
