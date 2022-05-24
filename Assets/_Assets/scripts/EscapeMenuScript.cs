@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System;
-using UnityStandardAssets.Utility;
 using UnityStandardAssets.Characters.FirstPerson;
 public class EscapeMenuScript : MonoBehaviour
 {
@@ -16,7 +12,7 @@ public class EscapeMenuScript : MonoBehaviour
     private MouseLook mouseLook;
 
     private bool menuEnabled = false;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +26,8 @@ public class EscapeMenuScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void PauseMenuHandler(bool pauseMenuEnabled) {
+    public void PauseMenuHandler(bool pauseMenuEnabled)
+    {
         pauseText.enabled = pauseMenuEnabled;
         startText.gameObject.SetActive(pauseMenuEnabled);
         exitText.gameObject.SetActive(pauseMenuEnabled);
@@ -39,36 +36,44 @@ public class EscapeMenuScript : MonoBehaviour
         menuEnabled = pauseMenuEnabled;
     }
 
-    void Update() {
-        if (menuEnabled) {
+    void Update()
+    {
+        if (menuEnabled)
+        {
             mouseLook.lockCursor = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             //canvas.PauseMenuHandler(!enterMenu);
             //Cursor.visible = true;
-        } else {
+        }
+        else
+        {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
-    public void ExitPress() {
+    public void ExitPress()
+    {
         //quitMenu.enabled = true;
         startText.enabled = false;
         exitText.enabled = false;
     }
 
-public void NoPress() {
+    public void NoPress()
+    {
         // quitMenu.enabled = false;
         startText.enabled = true;
         exitText.enabled = true;
     }
 
-    public void StartLevel () {
+    public void StartLevel()
+    {
         SceneManager.LoadScene("GameScene");
     }
 
-    public void MainMenu () {
+    public void MainMenu()
+    {
         SceneManager.LoadScene("MainMenuScene");
         mouseLook = new MouseLook();
         mouseLook.lockCursor = false;
@@ -76,7 +81,8 @@ public void NoPress() {
     }
 
 
-    public void ExitGame (){
+    public void ExitGame()
+    {
         Application.Quit();
     }
 }

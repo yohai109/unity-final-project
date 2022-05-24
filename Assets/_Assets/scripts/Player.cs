@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityStandardAssets.Characters.FirstPerson;
 
 public class Player : MonoBehaviour
 {
@@ -11,7 +8,6 @@ public class Player : MonoBehaviour
         maxHealth;
     public HealthBar healthBar;
     private bool enterMenu = false;
-    MouseLook mouseLook;
 
     public EscapeMenuScript canvas;
 
@@ -20,7 +16,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         healthBar.UpdateHealthBar();
-        //mouseLook = new MouseLook();
     }
 
     public void TakeDamage(int damageMultipliyer)
@@ -50,10 +45,6 @@ public class Player : MonoBehaviour
         {
             TakeDamage(1);
         }
-
-        // mouseLook.lockCursor = enterMenu;
-        // Cursor.visible = enterMenu;
-
 
         if (Input.GetKeyUp(KeyCode.Escape))
         {

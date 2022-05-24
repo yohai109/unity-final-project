@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,10 +26,6 @@ public class DragonScript : MonoBehaviour
             target = GameObject.FindWithTag("Player").GetComponent<Transform>().position;
             moveDirection = target - transform.position;
             transform.LookAt(target);
-            // if (moveDirection.magnitude < 1)
-            // {
-            //     StartCoroutine(Stay());
-            // }
 
             GetComponent<Rigidbody>().velocity = moveDirection.normalized * speed;
         }
