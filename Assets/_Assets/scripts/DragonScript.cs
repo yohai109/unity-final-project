@@ -9,13 +9,20 @@ public class DragonScript : MonoBehaviour
     private Vector3 target, moveDirection;
     // Start is called before the first frame update
     private float currentSpeed;
+    private Animator animator;
 
-    private void Start() {
+    private int level = 0;
+
+    private void Start()
+    {
         currentSpeed = speed;
+        animator = gameObject.GetComponent<Animator>();
     }
 
-    private void Update() {
-        if (isDragonFollowing) {
+    private void Update()
+    {
+        if (isDragonFollowing)
+        {
             target = GameObject.FindWithTag("Player").GetComponent<Transform>().position;
             moveDirection = target - transform.position;
             transform.LookAt(target);
@@ -28,15 +35,18 @@ public class DragonScript : MonoBehaviour
         }
     }
 
-    public void Wake() {
-        gameObject.GetComponent<Animator>().SetTrigger("WakeTrigger");
+    public void Wake()
+    {
+        level = 1;
+        animator.SetTrigger("WakeTrigger");
         StartCoroutine(DragonStartFollow(7));
     }
 
-    private IEnumerator DragonStartFollow(int seconds) {
+    private IEnumerator DragonStartFollow(int seconds)
+    {
         speed = 0;
         yield return new WaitForSeconds(seconds);
-        gameObject.GetComponent<Animator>().SetTrigger("WalkTrigger");
+        animator.SetTrigger("WalkTrigger");
         speed = currentSpeed;
         isDragonFollowing = true;
     }
@@ -45,14 +55,49 @@ public class DragonScript : MonoBehaviour
     {
         float oldSpeed = speed;
         speed = 0;
-        gameObject.GetComponent<Animator>().SetTrigger("WakeTrigger");
+        animator.SetTrigger("WakeTrigger");
         yield return new WaitForSeconds(3);
-        gameObject.GetComponent<Animator>().SetTrigger("WalkTrigger");
+        animator.SetTrigger("WalkTrigger");
         speed = oldSpeed;
     }
 
-    private void SpeedUp() {
+    private void SpeedUp()
+    {
         this.speed *= 2;
     }
 
+
+    private void startRunning()
+    {
+        animator.SetTrigger("RunTrigger");
+        SpeedUp();
+    }
+
+    private void runFaster()
+    {
+        animator.SetTrigger("RunFasterTrigger");
+        SpeedUp();
+    }
+
+    public void die()
+    {
+        animator.SetTrigger("DieTrigger");
+        speed = 0;
+    }
+
+    public void nextLevel()
+    {
+        level++;
+        switch (level)
+        {
+            case 2:
+                startRunning();
+                break;
+            case 3:
+                runFaster();
+                break;
+            default:
+                break;
+        }
+    }
 }

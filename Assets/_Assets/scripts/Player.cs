@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     public EscapeMenuScript canvas;
 
+    public DragonScript dragon;
+
     void Start()
     {
         healthBar.UpdateHealthBar();
@@ -76,7 +78,11 @@ public class Player : MonoBehaviour
         }
         else if (other.tag == "Dragon")
         {
-            TakeDamage(4);
+            TakeDamage(2);
+        }
+        else if (other.tag == "Box")
+        {
+            dragon.nextLevel();
         }
     }
 }
