@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         healthBar.UpdateHealthBar();
     }
 
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             escapeCanvas.PauseMenuHandler(!enterMenu);
+            Time.timeScale = 1 * Convert.ToInt32(enterMenu);
             enterMenu = !enterMenu;
         }
     }
