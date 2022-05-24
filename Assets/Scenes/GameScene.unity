@@ -143,8 +143,9 @@ MonoBehaviour:
   health: 1
   maxHealth: 1
   healthBar: {fileID: 2140704673}
-  canvas: {fileID: 1512075043}
+  escapeCanvas: {fileID: 1512075043}
   dragon: {fileID: 1218928457}
+  canvas: {fileID: 1512075044}
 --- !u!1001 &7715704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1092,7 +1093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragon: {fileID: 1218928457}
-  textBox: {fileID: 1381486694}
+  canvas: {fileID: 1512075044}
 --- !u!65 &50900996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23641,7 +23642,7 @@ GameObject:
   - component: {fileID: 1381486695}
   - component: {fileID: 1381486694}
   m_Layer: 5
-  m_Name: RunText
+  m_Name: WarningTextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23664,7 +23665,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 53.6395, y: 49.8295}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381486694
 MonoBehaviour:
@@ -23699,7 +23700,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RUN
+  m_Text: 'Text
+
+    Text'
 --- !u!222 &1381486695
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25568,6 +25571,7 @@ GameObject:
   - component: {fileID: 1512075040}
   - component: {fileID: 1512075039}
   - component: {fileID: 1512075043}
+  - component: {fileID: 1512075044}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -25677,6 +25681,19 @@ MonoBehaviour:
   startText: {fileID: 601016236}
   exitText: {fileID: 938454573}
   mainMenuText: {fileID: 1576260616}
+--- !u!114 &1512075044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512075038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661578ef66fe480448dfd81c24924a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warningTextBox: {fileID: 1381486694}
 --- !u!1001 &1514158569
 PrefabInstance:
   m_ObjectHideFlags: 0

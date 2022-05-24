@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class DragonWakeTriggerScript : MonoBehaviour
 {
     public DragonScript dragon;
-    public Text textBox;
+    public CanvasScript canvas;
+    private static string textBoxText = "RUN" ;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,16 +24,17 @@ public class DragonWakeTriggerScript : MonoBehaviour
             if (hit.collider.gameObject.tag == "Player")
             {
                 dragon.Wake();
-                StartCoroutine(ShowText(5));
+                StartCoroutine(canvas.ShowText(textBoxText, 5, 5));
             }
         }
     }
 
-    private IEnumerator ShowText(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        textBox.enabled = true;
-        yield return new WaitForSeconds(seconds);
-        textBox.enabled = false;
-    }
+    // private IEnumerator ShowText(int seconds)
+    // {
+    //     textBox.text = "textBoxText";
+    //     yield return new WaitForSeconds(seconds);
+    //     textBox.enabled = true;
+    //     yield return new WaitForSeconds(seconds);
+    //     textBox.enabled = false;
+    // }
 }

@@ -9,9 +9,12 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     private bool enterMenu = false;
 
-    public EscapeMenuScript canvas;
+    public EscapeMenuScript escapeCanvas;
 
     public DragonScript dragon;
+
+    public CanvasScript canvas;
+    private string textBoxText = "You GOT MORE HP\nBUT THE DRAGON GOT FASTER";
 
     void Start()
     {
@@ -41,14 +44,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Example so we can test the Health Bar functionality
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(1);
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     TakeDamage(1);
+        // }
 
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            canvas.PauseMenuHandler(!enterMenu);
+            escapeCanvas.PauseMenuHandler(!enterMenu);
             enterMenu = !enterMenu;
         }
     }
@@ -75,7 +78,19 @@ public class Player : MonoBehaviour
         else if (other.tag == "Box")
         {
             dragon.nextLevel();
+            TakeDamage(-1);
             Destroy(other.gameObject);
+            StartCoroutine(canvas.ShowText(textBoxText, 0, 3));
         }
     }
+
+         
+    // private IEnumerator ShowText(int seconds)
+    // {
+    //     textBox.text = "textBoxText";
+    //     yield return new WaitForSeconds(seconds);
+    //     textBox.enabled = true;
+    //     yield return new WaitForSeconds(seconds);
+    //     textBox.enabled = false;
+    // }
 }
