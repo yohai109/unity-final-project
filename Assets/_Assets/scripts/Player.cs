@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public DragonScript dragon;
 
     public CanvasScript canvas;
-    private string textBoxText = "You GOT MORE HP\nBUT THE DRAGON GOT FASTER";
+    private string textBoxText = "THE DRAGON GOT FASTER";
 
     void Start()
     {

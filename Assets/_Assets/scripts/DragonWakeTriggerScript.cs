@@ -7,6 +7,7 @@ public class DragonWakeTriggerScript : MonoBehaviour
     public DragonScript dragon;
     public CanvasScript canvas;
     private static string textBoxText = "RUN" ;
+    private bool dragonGotAwake = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +18,15 @@ public class DragonWakeTriggerScript : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        int rayLength = 30;
-        Debug.DrawRay(transform.position, Vector3.right * rayLength, Color.green);
-        if (Physics.Raycast(transform.position, Vector3.right, out hit, rayLength))
+        int rayLength = 50;
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Vector3.left * rayLength, Color.green);
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Vector3.left, out hit, rayLength))
         {
-            if (hit.collider.gameObject.tag == "Player")
+            Debug.Log("object entered ray");
+            if (hit.collider.gameObject.tag == "Player" && !dragonGotAwake)
             {
+                dragonGotAwake = false;
+                Debug.Log("Dragon got awake");
                 dragon.Wake();
                 StartCoroutine(canvas.ShowText(textBoxText, 5, 5));
             }

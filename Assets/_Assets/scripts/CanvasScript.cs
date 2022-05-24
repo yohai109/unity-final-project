@@ -21,6 +21,11 @@ public class CanvasScript : MonoBehaviour
 
     public IEnumerator ShowText(string textToShow, int delayInSeconds, int showInSeconds) {
         warningTextBox.text = textToShow;
+        // if (textToShow.Length > 4) {
+        //     warningTextBox.fontSize = 6;
+        // } else {
+        //     warningTextBox.fontSize = 14;
+        // }
         yield return new WaitForSeconds(delayInSeconds);
         warningTextBox.enabled = true;
         yield return new WaitForSeconds(showInSeconds);
