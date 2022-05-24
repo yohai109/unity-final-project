@@ -88,16 +88,13 @@ public class DragonScript : MonoBehaviour
     public void nextLevel()
     {
         level++;
-        switch (level)
+        if (level == 2)
         {
-            case 2:
-                startRunning();
-                break;
-            case 3:
-                runFaster();
-                break;
-            default:
-                break;
+            startRunning();
+        }
+        else if (level == 3)
+        {
+            runFaster();
         }
     }
 }

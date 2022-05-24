@@ -74,7 +74,6 @@ public class Player : MonoBehaviour
         {
             TakeDamage(-1);
             Destroy(other.gameObject);
-            
         }
         else if (other.tag == "Dragon")
         {
@@ -83,6 +82,7 @@ public class Player : MonoBehaviour
         else if (other.tag == "Box")
         {
             dragon.nextLevel();
+            Destroy(other.gameObject);
         }
     }
 }
