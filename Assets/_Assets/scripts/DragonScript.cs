@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class DragonScript : MonoBehaviour
@@ -13,21 +14,23 @@ public class DragonScript : MonoBehaviour
 
     private int level = 0;
 
+    private Transform player = null;
+    private NavMeshAgent agent;
+
     private void Start()
     {
         currentSpeed = speed;
         animator = gameObject.GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
     private void Update()
     {
         if (isDragonFollowing)
         {
-            target = GameObject.FindWithTag("Player").GetComponent<Transform>().position;
-            moveDirection = target - transform.position;
-            transform.LookAt(target);
-
-            GetComponent<Rigidbody>().velocity = moveDirection.normalized * speed;
+            agent.SetDestination(player.position);
+            agent.speed = speed;
         }
     }
 
@@ -85,7 +88,7 @@ public class DragonScript : MonoBehaviour
     IEnumerator dieWaiting()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("WinningMenuScene");
+        SceneManager.LoadScene("FinalBossLevel");
     }
 
     public void nextLevel()

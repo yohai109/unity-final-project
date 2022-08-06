@@ -17,9 +17,5 @@ public class SwordScript : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetTrigger("hit");
         }
-        /*if (Input.GetMouseButtonUp(0))
-        {
-            gameObject.GetComponent<Animator>().ResetTrigger("hit");
-        }*/
     }
 }
