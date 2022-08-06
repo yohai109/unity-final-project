@@ -10,6 +10,8 @@ TagManager:
   - Run
   - HPPostion
   - Box
+  - Arrow
+  - Minion
   layers:
   - Default
   - TransparentFX
