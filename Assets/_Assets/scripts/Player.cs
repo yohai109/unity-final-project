@@ -5,8 +5,8 @@ using System;
 public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float health,
-        maxHealth;
+    public float health = 1;
+    public float maxHealth = 1;
     public HealthBar healthBar;
     private bool enterMenu = false;
 
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         healthBar.UpdateHealthBar();
     }
 
-    public void TakeDamage(int damageMultipliyer)
+    public void TakeDamage(float damageMultipliyer)
     {
         // Use your own damage handling code, or this example one.
         if (health - (0.25f * damageMultipliyer) <= 0)
@@ -45,12 +45,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // Example so we can test the Health Bar functionality
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     TakeDamage(1);
-        // }
-
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             escapeCanvas.PauseMenuHandler(!enterMenu);
@@ -69,7 +63,28 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "HPPostion")
+        switch (other.tag)
+        {
+            case "HPPostion":
+                TakeDamage(-1);
+                Destroy(other.gameObject);
+                break;
+            case "Dragon":
+                TakeDamage(2);
+                break;
+            case "Box":
+                dragon.nextLevel();
+                TakeDamage(-1);
+                Destroy(other.gameObject);
+                StartCoroutine(canvas.ShowText(textBoxText, 0, 3));
+                break;
+            case "Minion":
+                TakeDamage(0.75f);
+                break;
+            default:
+                break;
+        }
+        /*if (other.tag == "HPPostion")
         {
             TakeDamage(-1);
             Destroy(other.gameObject);
@@ -84,10 +99,10 @@ public class Player : MonoBehaviour
             TakeDamage(-1);
             Destroy(other.gameObject);
             StartCoroutine(canvas.ShowText(textBoxText, 0, 3));
-        }
+        }*/
     }
 
-         
+
     // private IEnumerator ShowText(int seconds)
     // {
     //     textBox.text = "textBoxText";
