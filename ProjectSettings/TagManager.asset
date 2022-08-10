@@ -12,6 +12,7 @@ TagManager:
   - Box
   - Arrow
   - Minion
+  - Terrain
   layers:
   - Default
   - TransparentFX
