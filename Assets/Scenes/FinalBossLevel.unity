@@ -590,15 +590,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470761064}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 869.4, y: 1.26, z: 218.3}
+  m_LocalRotation: {x: -0, y: -0.74562013, z: -0, w: 0.6663713}
+  m_LocalPosition: {x: 864.63745, y: 1.26, z: 213.4855}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1181673788}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -96.425, z: 0}
 --- !u!114 &470761066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76af5aa4438b3214abf8a6e52da8acdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX: 2
+  MAX: 30
   player: {fileID: 1154151736}
   minionToDuplicate: {fileID: 1181673788}
   minRadius: 20
