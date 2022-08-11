@@ -1556,6 +1556,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 875224374}
     m_Modifications:
+    - target: {fileID: 5927692256958040518, guid: e2b67e32a9e839a439ec6498a2e6db54, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 875224375}
+    - target: {fileID: 5927692256958040518, guid: e2b67e32a9e839a439ec6498a2e6db54, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927692258537134690, guid: e2b67e32a9e839a439ec6498a2e6db54, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 875224375}
+    - target: {fileID: 5927692258537134690, guid: e2b67e32a9e839a439ec6498a2e6db54, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927692258736157667, guid: e2b67e32a9e839a439ec6498a2e6db54, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 875224375}
+    - target: {fileID: 5927692258736157667, guid: e2b67e32a9e839a439ec6498a2e6db54, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 6727157106323117098, guid: e2b67e32a9e839a439ec6498a2e6db54, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

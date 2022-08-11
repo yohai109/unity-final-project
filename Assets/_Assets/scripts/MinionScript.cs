@@ -10,7 +10,11 @@ public class MinionScript : MonoBehaviour
     public int minRadius;
     void Start()
     {
-        while (count <= 30)
+        if (count >= MAX)
+        {
+            count = 0;
+        }
+        while (count <= MAX)
         {
             float x;
             float z;
