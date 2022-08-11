@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MinionScript : MonoBehaviour
 {
-    static int count = 1;
+    int count = 1;
     public int MAX = 30;
     public Transform player;
+    public Transform minionToDuplicate;
     public int minRadius;
     void Start()
     {
         if (count >= MAX)
         {
-            count = 0;
+            count = 1;
         }
         while (count <= MAX)
         {
@@ -24,14 +26,17 @@ public class MinionScript : MonoBehaviour
                 z = getRandNum(130f, 330f);
             } while (!isNewPosOK(x, z));
             Vector3 pos = new Vector3(x, transform.position.y, z);
-            Instantiate(gameObject, pos, transform.rotation, null);
+            Instantiate(minionToDuplicate, pos, transform.rotation, null);
             count++;
         }
     }
 
     void Update()
     {
-
+        if (transform.childCount == 0)
+        {
+            SceneManager.LoadScene("WinningMenuScene");
+        }
     }
 
     float getRandNum(float min, float max)

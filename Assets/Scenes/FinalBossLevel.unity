@@ -575,6 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470761065}
+  - component: {fileID: 470761066}
   m_Layer: 0
   m_Name: Minions
   m_TagString: Untagged
@@ -598,6 +599,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &470761066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470761064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76af5aa4438b3214abf8a6e52da8acdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAX: 2
+  player: {fileID: 1154151736}
+  minionToDuplicate: {fileID: 1181673788}
+  minRadius: 20
 --- !u!1 &599023464
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +884,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &898356169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898356166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20dab143eaa29c4691f4730a641bbc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1038074737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,21 +1180,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
---- !u!114 &1181673797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181673787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76af5aa4438b3214abf8a6e52da8acdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MAX: 30
-  player: {fileID: 1154151736}
-  minRadius: 30
 --- !u!224 &1206339667 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6727157106323117098, guid: e2b67e32a9e839a439ec6498a2e6db54, type: 3}
