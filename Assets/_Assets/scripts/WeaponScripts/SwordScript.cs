@@ -5,6 +5,8 @@ using UnityEngine;
 public class SwordScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int range = 50;
+    public Transform player;
     void Start()
     {
 
@@ -13,12 +15,12 @@ public class SwordScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*Debug.DrawRay(player.position, player.TransformDirection(Vector3.forward) * rayLength, Color.green, 100f);*/
         if (Input.GetMouseButtonDown(0))
         {
             gameObject.GetComponent<Animator>().SetTrigger("hit");
             RaycastHit hit;
-            int rayLength = 50;
-            if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector3.forward, out hit, rayLength))
+            if (Physics.Raycast(player.position, player.TransformDirection(Vector3.forward), out hit, range))
             {
                 if (hit.collider.gameObject.tag.Equals("Minion"))
                 {
@@ -29,13 +31,4 @@ public class SwordScript : MonoBehaviour
 
         }
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag.Equals("Minion"))
-        {
-            Destroy(other.gameObject);
-            *//*Destroy(gameObject);*//*
-        }
-    }*/
 }

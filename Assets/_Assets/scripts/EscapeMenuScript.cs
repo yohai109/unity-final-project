@@ -69,7 +69,8 @@ public class EscapeMenuScript : MonoBehaviour
 
     public void StartLevel()
     {
-        SceneManager.LoadScene("GameScene");
+        /*SceneManager.LoadScene("GameScene");*/
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()
