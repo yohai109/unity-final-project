@@ -7,6 +7,7 @@ public class SwordScript : MonoBehaviour
     // Start is called before the first frame update
     public int range = 50;
     public Transform player;
+    public int dmg = 3;
     void Start()
     {
 
@@ -24,7 +25,7 @@ public class SwordScript : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag.Equals("Minion"))
                 {
-                    Destroy(hit.transform.gameObject);
+                    hit.collider.gameObject.GetComponent<EnemyScript>().takeDemege(dmg);
                 }
 
             }

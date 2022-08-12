@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class arrowScript : MonoBehaviour
+public class EnemyScript : MonoBehaviour
 {
+    public int HP = 3;
     // Start is called before the first frame update
-    public int dmg = 1;
     void Start()
     {
 
@@ -17,12 +17,11 @@ public class arrowScript : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void takeDemege(int dmg)
     {
-        if (other.gameObject.tag.Equals("Minion"))
+        HP -= dmg;
+        if (HP <= 0)
         {
-            /*Destroy(other.gameObject);*/
-            other.GetComponent<EnemyScript>().takeDemege(dmg);
             Destroy(gameObject);
         }
     }
