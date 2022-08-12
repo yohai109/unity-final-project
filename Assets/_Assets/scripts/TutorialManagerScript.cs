@@ -26,6 +26,14 @@ public class TutorialManagerScript : MonoBehaviour
         
     }
 
+    public void PlayerTookBow() {
+        GameObject bow = GameObject.FindWithTag("Bow");
+        Destroy(bow);
+        Destroy(invisibleWall_Bow);
+        playerBow.SetActive(true);
+        playerSword.SetActive(false);
+    }
+    
     public void PlayerTookSword() {
         GameObject sword = GameObject.FindWithTag("Sword");
         Destroy(sword);

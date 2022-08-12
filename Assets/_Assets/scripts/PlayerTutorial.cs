@@ -17,8 +17,11 @@ public class PlayerTutorial : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other) {
+         if (other.gameObject.tag == "Bow") {
+            GameObject.FindWithTag("Manager").GetComponent<TutorialManagerScript>().PlayerTookBow();
+         }
          if (other.gameObject.tag == "Sword") {
             GameObject.FindWithTag("Manager").GetComponent<TutorialManagerScript>().PlayerTookSword();
-         }
+         } 
     }   
 }

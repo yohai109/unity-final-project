@@ -15,6 +15,7 @@ TagManager:
   - Terrain
   - Manager
   - Sword
+  - Bow
   layers:
   - Default
   - TransparentFX
