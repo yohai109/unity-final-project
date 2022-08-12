@@ -41,7 +41,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartLevel()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("TutorialScene");
     }
 
 
