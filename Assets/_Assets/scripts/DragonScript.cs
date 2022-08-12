@@ -7,10 +7,11 @@ public class DragonScript : MonoBehaviour
 {
     public float speed;
     private bool isDragonFollowing = false;
-    private Vector3 target, moveDirection;
     // Start is called before the first frame update
     private float currentSpeed;
     private Animator animator;
+    public Camera cutSceneCamera;
+    public Camera mainCamera;
 
     private int level = 0;
 
@@ -19,6 +20,8 @@ public class DragonScript : MonoBehaviour
 
     private void Start()
     {
+        /*cutSceneCamera.enabled = false;*/
+        switchCamera(false);
         currentSpeed = speed;
         animator = gameObject.GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
@@ -38,6 +41,8 @@ public class DragonScript : MonoBehaviour
     {
         level = 1;
         animator.SetTrigger("WakeTrigger");
+        /*cutSceneCamera.enabled = true;*/
+        switchCamera(true);
         StartCoroutine(DragonStartFollow(7));
     }
 
@@ -45,6 +50,8 @@ public class DragonScript : MonoBehaviour
     {
         speed = 0;
         yield return new WaitForSeconds(seconds);
+        /*cutSceneCamera.enabled = false;*/
+        switchCamera(false);
         animator.SetTrigger("WalkTrigger");
         speed = currentSpeed;
         isDragonFollowing = true;
@@ -102,5 +109,11 @@ public class DragonScript : MonoBehaviour
         {
             runFaster();
         }
+    }
+
+    private void switchCamera(bool isCutScene)
+    {
+        cutSceneCamera.enabled = isCutScene;
+        /*mainCamera.enabled = !isCutScene;*/
     }
 }
