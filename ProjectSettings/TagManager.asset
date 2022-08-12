@@ -16,6 +16,8 @@ TagManager:
   - Manager
   - Sword
   - Bow
+  - ArcheryTarget
+  - InvicibleWall
   layers:
   - Default
   - TransparentFX

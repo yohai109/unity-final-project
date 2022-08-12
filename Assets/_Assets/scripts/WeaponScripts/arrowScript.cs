@@ -23,5 +23,17 @@ public class arrowScript : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag.Equals("InvicibleWall"))
+        {
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag.Equals("ArcheryTarget"))
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
+    
 }

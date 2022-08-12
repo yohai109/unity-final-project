@@ -12,12 +12,17 @@ public class TutorialManagerScript : MonoBehaviour
     public GameObject playerBow;
     public GameObject playerSword;
 
+    public GameObject dragon;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerBow.SetActive(false);
         playerSword.SetActive(false);
+
+        dragon.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -38,6 +43,7 @@ public class TutorialManagerScript : MonoBehaviour
         GameObject sword = GameObject.FindWithTag("Sword");
         Destroy(sword);
         Destroy(invisibleWall_Sword);
+        dragon.SetActive(true);
         playerSword.SetActive(true);
         playerBow.SetActive(false);
     }
