@@ -114,6 +114,10 @@ public class DragonScript : MonoBehaviour
     private void switchCamera(bool isCutScene)
     {
         cutSceneCamera.enabled = isCutScene;
-        /*mainCamera.enabled = !isCutScene;*/
+    }
+
+    public bool isDragonAsleep()
+    {
+        return !isDragonFollowing;
     }
 }

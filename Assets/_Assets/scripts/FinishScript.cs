@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishScript : MonoBehaviour
 {
@@ -21,7 +22,14 @@ public class FinishScript : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Player")
             {
-                dragon.die();
+                if (dragon.isDragonAsleep())
+                {
+                    SceneManager.LoadScene("WinningMenuScene");
+                }
+                else
+                {
+                    dragon.die();
+                }
             }
         }
     }
