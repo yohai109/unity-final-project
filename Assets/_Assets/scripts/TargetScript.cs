@@ -36,6 +36,16 @@ public class TargetScript : MonoBehaviour
             case 3: gameObject.GetComponent<Animator>().SetTrigger("Side2Side3"); break;
             case 4: gameObject.GetComponent<Animator>().SetTrigger("Side2Side4"); break;
             case 5: gameObject.GetComponent<Animator>().SetTrigger("Swirly"); break;
+            case 6:
+                gameObject.GetComponent<Animator>().SetTrigger("Exit");
+                Destroy(GameObject.Find("Cylinder.003"));
+                GameObject[] voronoyArray = GameObject.FindGameObjectsWithTag("VoronoyObject");
+
+                foreach (GameObject voronoy in voronoyArray) {
+                    Rigidbody voronoyRigidBody = voronoy.AddComponent<Rigidbody>();
+                    voronoyRigidBody.mass = 2;
+                }
+                break;
         }
     }
 }
