@@ -76,7 +76,10 @@ public class Player : MonoBehaviour
                 dragon.nextLevel();
                 TakeDamage(-1);
                 Destroy(other.gameObject);
-                StartCoroutine(canvas.ShowText(textBoxText, 0, 3));
+                if (!dragon.isDragonAsleep())
+                {
+                    StartCoroutine(canvas.ShowText(textBoxText, 0, 3));
+                }
                 break;
             case "Minion":
                 TakeDamage(0.75f);

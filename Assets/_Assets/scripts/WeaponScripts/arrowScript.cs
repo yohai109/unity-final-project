@@ -5,6 +5,7 @@ using UnityEngine;
 public class arrowScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int dmg = 1;
     void Start()
     {
 
@@ -20,7 +21,8 @@ public class arrowScript : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Minion"))
         {
-            Destroy(other.gameObject);
+            /*Destroy(other.gameObject);*/
+            other.GetComponent<EnemyScript>().takeDemege(dmg);
             Destroy(gameObject);
         }
 
