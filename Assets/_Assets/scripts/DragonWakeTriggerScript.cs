@@ -18,7 +18,7 @@ public class DragonWakeTriggerScript : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        int rayLength = 50;
+        int rayLength = 45;
         Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.left * rayLength, Color.green);
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.left, out hit, rayLength))
         {
