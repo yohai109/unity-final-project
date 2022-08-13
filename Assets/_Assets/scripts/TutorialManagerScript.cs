@@ -8,6 +8,8 @@ public class TutorialManagerScript : MonoBehaviour
 
     public GameObject invisibleWall_Bow;
     public GameObject invisibleWall_Sword;
+    public GameObject invisibleWall_Target;
+    public GameObject invisibleWall_Dragon;
 
     public GameObject playerBow;
     public GameObject playerSword;
@@ -16,6 +18,8 @@ public class TutorialManagerScript : MonoBehaviour
 
     public GameObject target;
     private int animationStage;
+
+    private bool isDragonActive = false;
 
 
     // Start is called before the first frame update
@@ -33,7 +37,11 @@ public class TutorialManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(isDragonActive) {
+            if(GameObject.FindGameObjectWithTag("Minion") == null) {
+                Destroy(invisibleWall_Dragon);
+            }
+        }
     }
 
     public void PlayerTookBow() {
@@ -53,5 +61,11 @@ public class TutorialManagerScript : MonoBehaviour
         dragon.SetActive(true);
         playerSword.SetActive(true);
         playerBow.SetActive(false);
+
+        isDragonActive = true;
+    }
+
+    public void TargetDestroyed() {
+        Destroy(invisibleWall_Target);
     }
 }
