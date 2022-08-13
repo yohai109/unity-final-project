@@ -28,7 +28,7 @@ public class FinishScript : MonoBehaviour
                 }
                 else
                 {
-                    dragon.die();
+                    SceneManager.LoadScene("FinalBossLevel");
                 }
             }
         }
