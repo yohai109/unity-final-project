@@ -29,11 +29,9 @@ public class arrowScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (other.gameObject.tag.Equals("ArcheryTarget"))
-        {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
+        // if(other.gameObject.tag.Equals("ArcheryTarget")) {
+        //     other.gameObject.GetComponent<TargetScript>().AdvanceInAnimation();
+        // }
     }
     
 }

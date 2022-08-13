@@ -14,6 +14,9 @@ public class TutorialManagerScript : MonoBehaviour
 
     public GameObject dragon;
 
+    public GameObject target;
+    private int animationStage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,8 @@ public class TutorialManagerScript : MonoBehaviour
         playerSword.SetActive(false);
 
         dragon.SetActive(false);
+
+        animationStage = 0;
 
     }
 
@@ -37,6 +42,8 @@ public class TutorialManagerScript : MonoBehaviour
         Destroy(invisibleWall_Bow);
         playerBow.SetActive(true);
         playerSword.SetActive(false);
+
+        target.GetComponent<Animator>().SetTrigger("TargetUp");
     }
     
     public void PlayerTookSword() {
