@@ -22,8 +22,8 @@ public class MinionScript : MonoBehaviour
             float z;
             do
             {
-                x = getRandNum(660f, 800f);
-                z = getRandNum(130f, 330f);
+                x = getRandNum(700f, 770f);
+                z = getRandNum(150f, 300f);
             } while (!isNewPosOK(x, z));
             Vector3 pos = new Vector3(x, transform.position.y, z);
             Instantiate(minionToDuplicate, pos, transform.rotation, transform);
