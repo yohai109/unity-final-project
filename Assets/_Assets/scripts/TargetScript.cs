@@ -45,6 +45,8 @@ public class TargetScript : MonoBehaviour
                     Rigidbody voronoyRigidBody = voronoy.AddComponent<Rigidbody>();
                     voronoyRigidBody.mass = 2;
                 }
+
+                GameObject.FindWithTag("Manager").GetComponent<TutorialManagerScript>().TargetDestroyed();
                 break;
         }
     }

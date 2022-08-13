@@ -7,6 +7,7 @@ public class DragonScript : MonoBehaviour
 {
     public float speed;
     private bool isDragonFollowing = false;
+    private bool cameraSwitched = false;
     // Start is called before the first frame update
     private float currentSpeed;
     private Animator animator;
@@ -113,7 +114,14 @@ public class DragonScript : MonoBehaviour
 
     private void switchCamera(bool isCutScene)
     {
-        cutSceneCamera.enabled = isCutScene;
+        if (isCutScene) {
+            if(!cameraSwitched) {
+                cutSceneCamera.enabled = isCutScene;
+                cameraSwitched = !cameraSwitched;
+            }
+        } else {
+            cutSceneCamera.enabled = isCutScene;
+        }
     }
 
     public bool isDragonAsleep()
