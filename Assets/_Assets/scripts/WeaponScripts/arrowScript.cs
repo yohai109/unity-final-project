@@ -23,6 +23,11 @@ public class arrowScript : MonoBehaviour
         {
             /*Destroy(other.gameObject);*/
             other.GetComponent<EnemyScript>().takeDemege(dmg);
+            MinionAnimationControllerScript animated = other.GetComponent<MinionAnimationControllerScript>();
+            if (animated != null)
+            {
+                animated.ArrowHit();
+            }
             Destroy(gameObject);
         }
 
@@ -35,5 +40,5 @@ public class arrowScript : MonoBehaviour
         //     other.gameObject.GetComponent<TargetScript>().AdvanceInAnimation();
         // }
     }
-    
+
 }
