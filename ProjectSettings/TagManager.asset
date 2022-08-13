@@ -13,6 +13,11 @@ TagManager:
   - Arrow
   - Minion
   - Terrain
+  - Manager
+  - Sword
+  - Bow
+  - ArcheryTarget
+  - InvicibleWall
   layers:
   - Default
   - TransparentFX

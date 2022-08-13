@@ -25,5 +25,15 @@ public class arrowScript : MonoBehaviour
             other.GetComponent<EnemyScript>().takeDemege(dmg);
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag.Equals("InvicibleWall"))
+        {
+            Destroy(gameObject);
+        }
+
+        // if(other.gameObject.tag.Equals("ArcheryTarget")) {
+        //     other.gameObject.GetComponent<TargetScript>().AdvanceInAnimation();
+        // }
     }
+    
 }
