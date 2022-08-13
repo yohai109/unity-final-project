@@ -41,11 +41,13 @@ public class DragonPatrolScript : MonoBehaviour
     IEnumerator Stay()
     {
         movingFlag = false;
+        GetComponent<Animator>().SetTrigger("Idle");
         float tempSpeed = speed;
         speed = 0;
         //GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         speed = tempSpeed;
+        GetComponent<Animator>().SetTrigger("Walk");
         movingFlag = true;
     }
 }
