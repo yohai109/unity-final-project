@@ -18,6 +18,7 @@ TagManager:
   - Bow
   - ArcheryTarget
   - InvicibleWall
+  - VoronoyObject
   layers:
   - Default
   - TransparentFX
