@@ -26,6 +26,11 @@ public class SwordScript : MonoBehaviour
                 if (hit.collider.gameObject.tag.Equals("Minion"))
                 {
                     hit.collider.gameObject.GetComponent<EnemyScript>().takeDemege(dmg);
+                    MinionAnimationControllerScript animated = hit.collider.gameObject.GetComponent<MinionAnimationControllerScript>();
+                    if (animated != null)
+                    {
+                        animated.ArrowHit();
+                    }
                 }
 
             }

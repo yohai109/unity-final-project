@@ -26,7 +26,7 @@ public class MinionScript : MonoBehaviour
                 z = getRandNum(130f, 330f);
             } while (!isNewPosOK(x, z));
             Vector3 pos = new Vector3(x, transform.position.y, z);
-            Instantiate(minionToDuplicate, pos, transform.rotation, null);
+            Instantiate(minionToDuplicate, pos, transform.rotation, transform);
             count++;
         }
     }
